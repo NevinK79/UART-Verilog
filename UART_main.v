@@ -63,7 +63,7 @@ always @(*) begin
                 end
             end
         RECIEVE: begin
-            if((bitCounter == 10)&&(RxD ==1))
+            if((bitCounter == 10))
                 nextState = IDLE;
         else if( sampleCounter == midSample) begin
                 shift = 1;
