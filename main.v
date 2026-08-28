@@ -24,13 +24,16 @@ module main(
 input clk,
 input reset,
 input RxD,
-output Data
+output [6:0] Data,
+output [3:0] an
 );
-    
+
+assign an = 4'b1110;
 wire [7:0] RxData;
 
-uart uart(.clk(clk), .reset(reset), .RxD(RxD), .RxData(RxData));
-bcd BCDtoChar(.x(RxData), .data(Data));
+UART_main uart(.clk(clk), .reset(reset), .RxD(RxD), .RxData(RxData));
+
+ BCDtoChar bcd(.x(RxData), .data(Data));
 
 
 endmodule
