@@ -47,12 +47,12 @@ assign RxData = rxshift[8:1];
 
 
 always @(*) begin
-    shift<=0;
-    clearSample <=0;
-    incSample <=0;
-    clearBit <=0;
-    incBit <=0;
-    nextState <=0;
+    shift = 0;
+    clearSample = 0;
+    incSample = 0;
+    clearBit = 0;
+    incBit  = 0;
+    nextState = 0;
     
     case(state)
         IDLE: begin
@@ -68,6 +68,7 @@ always @(*) begin
         else if( sampleCounter == midSample) begin
                 shift = 1;
                 incBit =1;
+                nextState = RECIEVE;
         end
         if(sampleCounter == 3)
             clearSample = 1;
@@ -93,7 +94,7 @@ always @(posedge clk) begin
         
         state<=nextState;
             if(shift)
-                rxshift <={RxData, rxshift[9:1]};
+                rxshift <={RxD, rxshift[9:1]};//reverse
             if(clearSample)
                 sampleCounter <= 0;
             if(incSample)
