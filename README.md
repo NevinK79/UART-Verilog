@@ -57,7 +57,3 @@ Pin assignments are defined in `cstr_UART.xdc`.
 - Only lowercase ASCII letters `a`–`z` are mapped; other characters fall through to the `default` case.
 - Letters `m`, `t`, and `w` aren't mapped to a real segment pattern — a single 7-segment digit can't represent them in a way that's legible, so they're marked `//-not done` in `BCDtoChar.v`. `u` and `v` share a pattern for the same reason (a 7-segment digit can't distinguish them cleanly).
 - Only a single 7-segment digit is driven; multi-character strings are not buffered or scrolled.
-
-## License
-
-No license specified.
