@@ -70,6 +70,8 @@ always @(*) begin
                 incBit =1;
                 nextState = RECIEVE;
         end
+        else 
+            nextState = RECIEVE;
         if(sampleCounter == 3)
             clearSample = 1;
         else
