@@ -1,4 +1,4 @@
-# UART-Verilog
+# UART Reciever
 
 A simple UART receiver written in Verilog for the Digilent Basys 3 (Artix-7) FPGA board. It receives serial (RS-232) data over USB, decodes it, and displays the received ASCII lowercase letter on the board's 7-segment display.
 
